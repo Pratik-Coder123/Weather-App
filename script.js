@@ -15,9 +15,12 @@ function geteathorreport(city) {
     fetch(`${weatherapi.baseurl}?q=${city}&appid=${weatherapi.key}&units=metric`)
         .then(weather => {
             return weather.json();
-        }).then(showeathorreport);
+        }).then(showeathorreport).catch(not);
 }
-
+function not(){
+    alert("Please enter valid city name")
+    serachinputbox.value=""
+}
 function showeathorreport(weather) {
     console.log(weather);
     let city = document.getElementById('city') ;
